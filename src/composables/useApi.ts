@@ -1,6 +1,8 @@
-import { injectApi } from '@/plugins/api'
+/* eslint-disable ts/no-explicit-any */
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { shallowRef } from 'vue'
+
+import { injectApi } from '@/plugins/api'
 
 type UseApiOptions<T> = Partial<{
   onSuccess: (response: AxiosResponse<T>) => void
