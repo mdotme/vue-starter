@@ -4,13 +4,8 @@ import { useMainStore } from '@/stores'
 
 const store = useMainStore()
 
-const {
-  data,
-  loading,
-  error,
-  request: execute,
-} = useApi<{ id: number }[]>(
-  '/repos/manuchekhr32/vue-starter',
+const { data, loading, error, request } = useApi<{ id: number }[]>(
+  '/repos/mdotme/vue-starter',
   {
     headers: {
       Accept: 'application/vnd.github.v3.star+json',
@@ -30,7 +25,7 @@ const {
 
     <button @click="store.count++">Increment {{ store.getCount }}</button>
 
-    <button @click="execute">Fetch data</button>
+    <button @click="request()">Fetch data</button>
     <p v-if="loading">Loading...</p>
     <pre v-else-if="data">{{ data }}</pre>
     <pre v-else-if="error">{{ error }}</pre>

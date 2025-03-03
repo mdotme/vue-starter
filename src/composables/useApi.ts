@@ -21,7 +21,7 @@ export function useApi<T = unknown, D = any>(
   const loading = shallowRef<boolean>(false)
   const error = shallowRef<AxiosError | null>(null)
 
-  async function request(): Promise<
+  async function request(reqOptions?: AxiosRequestConfig): Promise<
     | {
         data: T
         error: null
@@ -36,7 +36,7 @@ export function useApi<T = unknown, D = any>(
       const _endpoint = typeof endpoint === 'string' ? endpoint : endpoint()
       const res = await api<T, AxiosResponse<T, any>, D>(
         _endpoint,
-        axiosOptions,
+        reqOptions ?? axiosOptions,
       )
       data.value = res.data
       error.value = null
