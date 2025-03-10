@@ -23,6 +23,7 @@ const { data, loading, error, request } = useApi<{ id: number }[]>(
   <div>
     <h1>HOME PAGE</h1>
 
+    <RouterLink :to="{ name: 'Protected' }"> Enter protected page </RouterLink>
     <button @click="store.count++">Increment {{ store.getCount }}</button>
 
     <button @click="request()">Fetch data</button>

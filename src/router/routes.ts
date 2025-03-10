@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router'
+import { TRouteRecordLike } from '@/types/router.types'
 
 export default [
   {
@@ -11,4 +11,12 @@ export default [
     name: 'About',
     component: () => import('@/pages/PAbout.vue'),
   },
-] as RouteRecordRaw[]
+  {
+    path: '/protected',
+    name: 'Protected',
+    meta: {
+      guards: ['ExampleGuard'],
+    },
+    component: () => import('@/pages/PProtected.vue'),
+  },
+] satisfies TRouteRecordLike[]
