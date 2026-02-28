@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useApi } from '@/composables/useApi.ts'
-import { useMainStore } from '@/stores'
+import { useMainStore } from '@/stores/index.store'
 
 const store = useMainStore()
 

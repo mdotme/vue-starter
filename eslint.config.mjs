@@ -16,11 +16,7 @@ export default [
         parser: tsParser,
       },
     },
-    files: [
-      'src/**/*.{vue,js,ts,json}',
-      'vite.config.{js,ts}',
-      'eslint.config.js',
-    ],
+    files: ['src/**/*.{vue,js,ts,json}', 'vite.config.{js,ts}'],
     plugins: {
       ts: tsPlug,
       vue: vuePlug,
@@ -45,6 +41,15 @@ export default [
       'vue/max-attributes-per-line': 'off',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
+      // dev
+      'no-console': 'warn',
+      'no-warning-comments': [
+        'warn',
+        {
+          terms: ['fix', 'fixme', 'testing', 'noprod'],
+          location: 'anywhere',
+        },
+      ],
     },
   },
 ]
